@@ -1,0 +1,12 @@
+
+.logo-container {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    /* width:10%; */
+}
+#body {
+    padding: 40px;
+    display: flex;
+    text-align: center;
+}
