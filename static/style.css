@@ -9,5 +9,6 @@
 #body {
     padding: 40px;
     display: flex;
+    flex-direction: column;
     text-align: center;
 }
