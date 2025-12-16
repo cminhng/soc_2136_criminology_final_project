@@ -1,12 +1,13 @@
 console.log("play.js loaded");
 
 const defaultState = {
-  attachment: 0,
+  attachment: -2,
   belief: 0,
   involvement: 0,
   commitment: 0,
-  strain: 0,
-  earlyOffending: false
+  strain: 1,
+  earlyOffending: false,
+  persisted: false,
 };
 
 let state = { ...defaultState };
@@ -25,15 +26,14 @@ let awaitingChoice = false;
 const stage1 = [
     { type: "header", content: "CHILDHOOD" },
     { type: "text", content: "ACT I — a silent home." },
-    { type: "image", src: "./static/images/soc2136_final_def.png" },
-    { type: "image", src: "./static/images/soc2136_final_title.png" },
-    { type: "image", src: "./static/images/soc2136_final_def.png" },
-    { type: "image", src: "./static/images/soc2136_final_title.png" },
-    { type: "image", src: "./static/images/soc2136_final_def.png" },
-    { type: "image", src: "./static/images/soc2136_final_title.png" },
-    { type: "image", src: "./static/images/soc2136_final_def.png" },
+    { type: "image", src: "./static/images/soc2136_final_home.png" },
+    { type: "image", src: "./static/images/soc2136_final_home1.png" },
+    { type: "image", src: "./static/images/soc2136_final_home2.png" },
+    { type: "image", src: "./static/images/soc2136_final_home3.png" },
+    { type: "image", src: "./static/images/soc2136_final_home4.png" },
+    { type: "image", src: "./static/images/soc2136_final_home5.png" },
     { type: "text", content: "[???]: Hello!" },
-    { type: "image", src: "./static/images/soc2136_final_title.png" },
+    { type: "image", src: "./static/images/soc2136_final_home6.png" },
     { type: "choice",
         content: " ",
         choices: [
@@ -43,10 +43,9 @@ const stage1 = [
                     state.attachment += 1;
                     state.belief += 1;
                     state.strain -= 3;
-                    // insertSteps([
-                    // { type: "image", src: "./static/images/soc2136_final_def.png" },
-                    // { type: "text", content: "For a moment, you feel seen." }
-                    // ]);
+                    insertSteps([
+                        { type: "image", src: "./static/images/soc2136_final_home7.png" },
+                    ]);
                 }
             },
             {
@@ -55,6 +54,9 @@ const stage1 = [
                     state.attachment -= 1;
                     state.belief -= 1;
                     state.strain += 1;
+                    insertSteps([
+                        { type: "image", src: "./static/images/soc2136_final_home8.png" },
+                    ]);
                 }
             }
         ]
@@ -64,7 +66,7 @@ const stage1 = [
 const stage2 = [
     { type: "header", content: "EARLY ADOLESCENCE" },
     { type: "text", content: "ACT II — at school." },
-    { type: "image", src: "./static/images/soc2136_final_def.png" },
+    { type: "image", src: "./static/images/soc2136_final_school1.png" },
     { type: "choice",
         content: "Will you join in?",
         choices: [
@@ -81,7 +83,8 @@ const stage2 = [
                 effect: function () {
                     //this is the band
                     insertSteps([
-                    { type: "image", src: "./static/images/soc2136_final_title.png" },
+                    { type: "image", src: "./static/images/soc2136_final_school2.png" },
+                    { type: "image", src: "./static/images/soc2136_final_school3.png" },
                     { type: "choice", 
                         content: "Will you join in?",
                         choices: [
@@ -98,8 +101,10 @@ const stage2 = [
                                 effect: function () {
                                     //this is the library
                                     insertSteps([ 
-                                        { type: "image", src: "./static/images/soc2136_final_title.png" },
-                                        { type: "image", src: "./static/images/soc2136_final_def.png" },
+                                        { type: "image", src: "./static/images/soc2136_final_school4.png" },
+                                        { type: "image", src: "./static/images/soc2136_final_school5.png" },
+                                        { type: "image", src: "./static/images/soc2136_final_school6.png" },
+                                        { type: "image", src: "./static/images/soc2136_final_school7.png" },
                                         { type: "choice", 
                                             content: "",
                                             choices: [
@@ -109,6 +114,9 @@ const stage2 = [
                                                         state.involvement += 1;
                                                         state.attachment += 1;
                                                         state.strain -= 2;
+                                                        insertSteps([
+                                                            { type: "image", src: "./static/images/soc2136_final_school8.png" },
+                                                        ]);
                                                     }
                                                 },
                                                 {
@@ -117,7 +125,7 @@ const stage2 = [
                                                         state.involvement -= 1;
                                                         state.strain += 1;
                                                         insertSteps([
-                                                            { type: "image", src: "./static/images/soc2136_final_title.png" },
+                                                            { type: "image", src: "./static/images/soc2136_final_school9.png" },
                                                         ]);
                                                     }
                                                 },
@@ -147,9 +155,6 @@ const stage3 = [
                     state.commitment -= 4;
                     state.involvement -= 2;
                     state.strain += 3;
-                    insertSteps([
-                        { type: "image", src: "./static/images/soc2136_final_def.png" },
-                    ]);
                 }
             },
             {
@@ -299,7 +304,7 @@ const stage3 = [
             {
                 label: "I don't care.",
                 effect: function () {
-                    state.commitment -= 12;
+                    state.commitment -= 3;
                     state.belief -= 1;
                 }
             },
@@ -360,6 +365,7 @@ const stage4 = [
                                 {
                                     label: "It's over.",
                                     effect: function () {
+                                        state.persisted = true;
                                         endGame();
                                     }
                                 }
