@@ -11,7 +11,7 @@ const outcomeDescriptions = {
     earlyOffendingTrue: "Even though you briefly dipped your toes into delinquency in your youth, you're on the right track and your bonds will help you stay on the right side of the law."
   },
   "Stressed Achiever / Tense Conformist": {
-    title: "tense Conformist",
+    title: "tense conformist",
     summary: "strong bonds + high strain",
     description: "You’ve built strong bonds that keep you mostly lawful, but ongoing strain causes conflict, minor deviance, or emotional stress.",
     earlyOffendingTrue: "In your youth, you engaged in a few deviant activities to cope, but now you are a rule-following adult."
