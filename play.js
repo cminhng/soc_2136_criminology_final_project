@@ -24,12 +24,14 @@ let awaitingChoice = false;
 
 
 const stage1 = [
+    { type: "image", src: "./static/images/soc2136_final_def1.png" },
     { type: "header", content: "CHILDHOOD" },
     { type: "text", content: "ACT I — a silent home." },
     { type: "image", src: "./static/images/soc2136_final_home.png" },
     { type: "image", src: "./static/images/soc2136_final_home1.png" },
     { type: "image", src: "./static/images/soc2136_final_home2.png" },
     { type: "image", src: "./static/images/soc2136_final_home3.png" },
+    { type: "image", src: "./static/images/soc2136_final_transition.png" },
     { type: "image", src: "./static/images/soc2136_final_home4.png" },
     { type: "image", src: "./static/images/soc2136_final_home5.png" },
     { type: "text", content: "[???]: Hello!" },
@@ -60,7 +62,8 @@ const stage1 = [
                 }
             }
         ]
-    }
+    },
+    { type: "image", src: "./static/images/soc2136_final_transition.png" },
 ];
 
 const stage2 = [
@@ -141,6 +144,7 @@ const stage2 = [
             }
         ]
     },
+    { type: "image", src: "./static/images/soc2136_final_transition.png" },
 ];
 
 const stage3 = [
@@ -170,7 +174,7 @@ const stage3 = [
                                         state.commitment -= 1;
                                         state.strain += 1;
                                         insertSteps([
-                                            { type: "image", src: "./static/images/soc2136_final_def.png" },
+                                            { type: "image", src: "./static/images/soc2136_final_lateado1.png" },
                                         ]);
                                     }
                                 },
@@ -180,7 +184,7 @@ const stage3 = [
                                         state.commitment += 1;
                                         state.strain -= 1;
                                         insertSteps([
-                                            { type: "image", src: "./static/images/soc2136_final_title.png" },
+                                            { type: "image", src: "./static/images/soc2136_final_lateado2.png" },
                                         ]);
                                     }
                                 },
@@ -195,7 +199,7 @@ const stage3 = [
                                         state.commitment -= 1;
                                         state.involvement -= 1;
                                         insertSteps([
-                                            { type: "image", src: "./static/images/soc2136_final_def.png" },
+                                            { type: "image", src: "./static/images/soc2136_final_lateado3.png" },
                                         ]);
                                     }
                                 },
@@ -207,7 +211,7 @@ const stage3 = [
                                         state.involvement += 1;
                                         state.strain -= 1;
                                         insertSteps([
-                                            { type: "image", src: "./static/images/soc2136_final_title.png" },
+                                            { type: "image", src: "./static/images/soc2136_final_lateado4.png" },
                                         ]);
                                     }
                                 },
@@ -218,8 +222,8 @@ const stage3 = [
             }
         ]
     },
-    { type: "image", src: "./static/images/soc2136_final_def.png" },
-    { type: "image", src: "./static/images/soc2136_final_title.png" },
+    { type: "image", src: "./static/images/soc2136_final_transition.png" },
+    { type: "text", content: "you see some teenagers on the other side of a restricted fence." },
     { type: "choice",
         content: " ",
         choices: [
@@ -227,7 +231,7 @@ const stage3 = [
                 label: "Go over there.",
                 effect: function () {
                     insertSteps([
-                        { type: "image", src: "./static/images/soc2136_final_def.png" },
+                        { type: "text", content: "they're doing delinquent things. setting fires. kicking an animal around." },
                         { type: "choice", 
                             content: " ",
                             choices: [
@@ -239,7 +243,7 @@ const stage3 = [
                                         state.belief -= 1;
                                         state.strain -=2;
                                         insertSteps([
-                                            { type: "image", src: "./static/images/soc2136_final_title.png" },
+                                            { type: "image", src: "./static/images/soc2136_final_lateado6.png" },
                                             { type: "choice", 
                                                 content: "Have you had enough?",
                                                 choices: [
@@ -248,7 +252,7 @@ const stage3 = [
                                                         effect: function () {
                                                             state.belief -= 3;
                                                             insertSteps([
-                                                                { type: "image", src: "./static/images/soc2136_final_def.png" },
+                                                                { type: "image", src: "./static/images/soc2136_final_lateado7.png" },
                                                             ]);
                                                         }
                                                     },
@@ -267,9 +271,9 @@ const stage3 = [
                                     label: "Leave.",
                                     effect: function () {
                                         state.belief += 1;
-                                        insertSteps([
-                                            { type: "image", src: "./static/images/soc2136_final_title.png" },
-                                        ]);
+                                        // insertSteps([
+                                        //     { type: "image", src: "./static/images/soc2136_final_title.png" },
+                                        // ]);
                                     }
                                 },
                             ]
@@ -281,15 +285,15 @@ const stage3 = [
                 label: "Mind your own business.",
                 effect: function () {
                     state.belief += 1;
-                    insertSteps([
-                        { type: "image", src: "./static/images/soc2136_final_title.png" },
-                    ]);
+                    // insertSteps([
+                    //     { type: "image", src: "./static/images/soc2136_final_title.png" },
+                    // ]);
                 }
             }
         ]
     },
-    { type: "image", src: "./static/images/soc2136_final_def.png" },
-    { type: "image", src: "./static/images/soc2136_final_title.png" },
+    { type: "image", src: "./static/images/soc2136_final_transition.png" },
+    { type: "image", src: "./static/images/soc2136_final_lateado5.png" },
     { type: "choice",
         content: "[School counselor]: What do you want to be when you grow up?",
         choices: [
@@ -337,15 +341,16 @@ const stage3 = [
             }
         ]
     },
-    { type: "image", src: "./static/images/soc2136_final_def.png" },
+    { type: "image", src: "./static/images/soc2136_final_transition.png" },
 ];
 
 const stage4 = [
     { type: "header", content: "EARLY ADULTHOOD" },
     { type: "text", content: "ACT IV — look, it's not too late for anything." },
-    { type: "image", src: "./static/images/soc2136_final_def.png" },
+    { type: "text", content: "you've already crossed the law once." },
+
     { type: "choice",
-        content: "You've crossed the law once.",
+        content: " ",
         condition: () => state.earlyOffending === true,
         choices: [
             {
@@ -384,6 +389,7 @@ const stage4 = [
                 effect: function () {
                     state.commitment += 2;
                     insertSteps([
+                        { type: "image", src: "./static/images/soc2136_final_adult1.png" },
                         { type: "choice",
                             content: "Accept your coworkers' invite to lunch?",
                             choices: [
@@ -408,6 +414,9 @@ const stage4 = [
                 label: "I won't.",
                 effect: function () {
                     state.commitment -= 2;
+                    insertSteps([
+                        { type: "text", content: ":/" },
+                    ]);
                 }
             }
         ]
